@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Routine Visage Anti-Rougeurs – Novëm</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F1E8DC;
+  --yellow: #F3CF4A;
+  --dark: #2E1E1E;
+  --white: #FFFFFF;
+  --off-white: #FAF7F3;
+  --mid-cream: #E8DDD0;
+  --text: #2E1E1E;
+  --text-mid: #6a5a50;
+  --text-light: #a89080;
+  --border: #E8DDD0;
+  --radius: 30px;
+  --radius-sm: 8px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background: var(--white); color: var(--text); line-height: 1.6; }
+
+/* TRUST BAR */
+.trust-bar { background: var(--dark); color: rgba(255,255,255,0.85); display: flex; justify-content: center; flex-wrap: wrap; padding: 10px 20px; }
+.tb-item { padding: 0 20px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; border-right: 1px solid rgba(255,255,255,0.12); }
+.tb-item:last-child { border-right: none; }
+.tb-hl { color: var(--yellow); }
+
+/* NAV */
+.nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 100; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 12px; color: var(--text-mid); text-decoration: none; font-weight: 500; }
+.nav-logo img { height: 34px; width: auto; }
+.nav-logo-txt { font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 700; color: var(--dark); }
+.nav-cart { background: var(--dark); color: white; padding: 9px 22px; border-radius: var(--radius); font-size: 12px; font-weight: 600; text-decoration: none; }
+.breadcrumb { padding: 9px 48px; font-size: 11px; color: var(--text-light); background: var(--off-white); border-bottom: 1px solid var(--border); }
+
+/* HERO B/A */
+.hero { background: var(--dark); padding: 72px 48px 64px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(243,207,74,0.07), transparent 60%); pointer-events: none; }
+.hero-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); font-weight: 600; margin-bottom: 16px; }
+.hero-h1 { font-family: 'Noto Serif JP', serif; font-size: 52px; font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 14px; max-width: 640px; margin-left: auto; margin-right: auto; }
+.hero-h1 em { font-style: italic; color: var(--yellow); font-weight: 300; }
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.42); margin-bottom: 48px; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+
+/* B/A SLIDER */
+.ba-wrap { max-width: 900px; margin: 0 auto 32px; border-radius: 16px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); cursor: col-resize; user-select: none; }
+.ba-stage { position: relative; height: 440px; }
+.ba-after { position: absolute; inset: 0; background: linear-gradient(135deg, #f5e8d8 0%, #f0dcc8 100%); display: flex; align-items: center; justify-content: center; }
+.ba-after-inner { text-align: center; }
+.ba-emoji-after { font-size: 84px; display: block; margin-bottom: 10px; }
+.ba-title-after { font-family: 'Noto Serif JP', serif; font-size: 20px; color: var(--dark); font-weight: 700; }
+.ba-sub-after { font-size: 11px; color: var(--text-light); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.ba-before { position: absolute; top: 0; left: 0; bottom: 0; width: 50%; overflow: hidden; transition: width 0.04s linear; }
+.ba-before-inner { position: absolute; inset: 0; width: 900px; background: linear-gradient(135deg, #c8a090 0%, #d4b0a0 100%); display: flex; align-items: center; justify-content: center; }
+.ba-before-cnt { text-align: center; }
+.ba-emoji-before { font-size: 84px; display: block; margin-bottom: 10px; }
+.ba-title-before { font-family: 'Noto Serif JP', serif; font-size: 20px; color: rgba(255,255,255,0.78); font-weight: 700; }
+.ba-sub-before { font-size: 11px; color: rgba(255,255,255,0.42); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 3px; background: rgba(255,255,255,0.9); z-index: 10; pointer-events: none; }
+.ba-knob { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.25); font-size: 18px; color: var(--dark); pointer-events: none; font-weight: 700; }
+.ba-labels { position: absolute; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-between; padding: 14px 18px; pointer-events: none; }
+.ba-lbl { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; }
+.ba-lbl-b { background: rgba(0,0,0,0.4); color: rgba(255,255,255,0.7); }
+.ba-lbl-a { background: var(--yellow); color: var(--dark); }
+.ba-hint { font-size: 11px; color: rgba(255,255,255,0.28); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
+
+/* BENEFIT PILLS */
+.ba-pills { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; }
+.ba-pill { display: flex; align-items: center; gap: 7px; font-size: 12px; color: rgba(255,255,255,0.72); font-weight: 500; }
+.ba-pill-ck { color: var(--yellow); font-size: 14px; }
+
+/* HERO BOTTOM */
+.hero-bottom { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; }
+.btn-hero { background: var(--yellow); color: var(--dark); padding: 14px 40px; border: none; border-radius: var(--radius); font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; letter-spacing: 0.5px; transition: opacity 0.2s; }
+.btn-hero:hover { opacity: 0.88; }
+.hero-rating { color: rgba(255,255,255,0.55); font-size: 13px; display: flex; align-items: center; gap: 8px; }
+.hero-stars { color: var(--yellow); font-size: 22px; }
+
+/* STATS STRIP */
+.stats-strip { background: var(--cream); border-bottom: 1px solid var(--border); padding: 28px 0; display: flex; justify-content: center; }
+.st-item { flex: 1; max-width: 200px; text-align: center; padding: 0 20px; border-right: 1px solid var(--border); }
+.st-item:last-child { border-right: none; }
+.st-num { font-family: 'Noto Serif JP', serif; font-size: 46px; color: var(--dark); font-weight: 700; line-height: 1; }
+.st-label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; line-height: 1.4; }
+.st-label strong { color: var(--text-mid); display: block; }
+
+/* BUY BOX */
+.buybox { background: var(--white); border-bottom: 1px solid var(--border); }
+.buybox-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; }
+.bb-imgs { padding: 48px; background: var(--off-white); border-right: 1px solid var(--border); }
+.bb-main { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, var(--cream), var(--mid-cream)); border-radius: 16px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 90px; margin-bottom: 12px; position: relative; overflow: hidden; }
+.bb-main-badge { position: absolute; top: 14px; left: 14px; background: var(--yellow); color: var(--dark); font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+.bb-thumbs { display: flex; gap: 8px; }
+.bb-thumb { flex: 1; aspect-ratio: 1; background: var(--cream); border: 2px solid transparent; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; transition: border-color 0.15s; }
+.bb-thumb.on { border-color: var(--dark); }
+.bb-derma { margin-top: 14px; padding: 12px 16px; background: var(--cream); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-mid); text-align: center; border: 1px solid var(--border); }
+.bb-derma strong { display: block; color: var(--dark); margin-bottom: 3px; }
+
+/* BUY FORM */
+.bb-form { padding: 44px; }
+.bb-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.bb-badge { padding: 4px 12px; border: 1px solid var(--border); border-radius: 20px; font-size: 10px; color: var(--text-mid); font-weight: 600; background: var(--off-white); }
+.bb-title { font-family: 'Noto Serif JP', serif; font-size: 28px; color: var(--dark); font-weight: 700; line-height: 1.25; margin-bottom: 5px; }
+.bb-sub { font-size: 12px; color: var(--text-light); margin-bottom: 16px; }
+.rating-row { display: flex; align-items: center; gap: 10px; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 16px; flex-wrap: wrap; }
+.stars-g { color: #f0a800; font-size: 22px; line-height: 1; }
+.r-score { font-weight: 700; font-size: 14px; }
+.r-sep { color: var(--border); }
+.r-count { font-size: 12px; color: var(--text-light); text-decoration: underline; cursor: pointer; }
+.r-badge { font-size: 10px; background: var(--cream); padding: 3px 10px; border-radius: 20px; color: var(--text-mid); font-weight: 600; }
+.sb-row { display: flex; gap: 0; margin-bottom: 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+.sb-item { flex: 1; text-align: center; padding: 12px 8px; border-right: 1px solid var(--border); }
+.sb-item:last-child { border-right: none; }
+.sb-num { font-family: 'Noto Serif JP', serif; font-size: 24px; color: var(--dark); font-weight: 700; line-height: 1; }
+.sb-label { font-size: 10px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; line-height: 1.3; }
+.price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 5px; }
+.price-main { font-family: 'Noto Serif JP', serif; font-size: 40px; color: var(--dark); font-weight: 700; }
+.price-old { font-size: 18px; color: var(--text-light); text-decoration: line-through; }
+.price-save { background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+.price-sub { font-size: 12px; color: var(--text-light); margin-bottom: 20px; font-style: italic; }
+.price-sub strong { color: var(--dark); }
+.trust-buls { display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; background: var(--off-white); border-radius: var(--radius-sm); margin-bottom: 18px; border: 1px solid var(--border); }
+.tbul { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; }
+.tbul-ico { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.tbul-txt strong { color: var(--dark); display: block; font-size: 12px; margin-bottom: 1px; }
+.tbul-txt span { font-size: 11px; color: var(--text-light); }
+.mini-rev { background: var(--cream); border-radius: var(--radius-sm); padding: 14px 16px; margin-bottom: 18px; border-left: 4px solid var(--yellow); }
+.mr-stars { color: #f0a800; font-size: 20px; margin-bottom: 5px; }
+.mr-quote { font-size: 13px; color: var(--dark); line-height: 1.6; font-style: italic; margin-bottom: 5px; }
+.mr-name { font-size: 11px; color: var(--text-light); font-weight: 600; }
+.btn-cart { width: 100%; padding: 18px; background: var(--dark); color: white; border: none; border-radius: var(--radius); font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; margin-bottom: 10px; transition: opacity 0.2s; box-shadow: 0 4px 20px rgba(46,30,30,0.18); letter-spacing: 0.5px; }
+.btn-cart:hover { opacity: 0.9; }
+.btn-sec { width: 100%; padding: 13px; background: transparent; color: var(--dark); border: 2px solid var(--dark); border-radius: var(--radius); font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'Poppins', sans-serif; margin-bottom: 14px; transition: all 0.15s; }
+.btn-sec:hover { background: var(--dark); color: white; }
+.pay-icons { display: flex; gap: 6px; justify-content: center; margin-bottom: 10px; flex-wrap: wrap; }
+.pay-ico { padding: 4px 9px; border: 1px solid var(--border); border-radius: 6px; font-size: 10px; font-weight: 600; color: var(--text-mid); }
+.del-row { display: flex; gap: 12px; justify-content: center; font-size: 11px; color: var(--text-light); padding-top: 10px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+
+/* TIMELINE */
+.tl-bg { background: var(--white); border-bottom: 1px solid var(--border); }
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+.timeline::before { content: ''; position: absolute; top: 24px; left: 40px; right: 40px; height: 2px; background: linear-gradient(to right, var(--yellow), rgba(243,207,74,0.4), var(--yellow)); }
+.tl-item { position: relative; z-index: 1; padding: 56px 20px 0; }
+.tl-dot { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 28px; height: 28px; border-radius: 50%; background: var(--white); border: 2px solid var(--yellow); display: flex; align-items: center; justify-content: center; font-size: 11px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.tl-dot.lit { background: var(--yellow); color: var(--dark); font-weight: 700; }
+.tl-when { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 6px; }
+.tl-name { font-family: 'Noto Serif JP', serif; font-size: 16px; color: var(--dark); font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+.tl-desc { font-size: 12px; color: var(--text-mid); line-height: 1.65; margin-bottom: 10px; }
+.tl-feel { font-family: 'Noto Serif JP', serif; font-size: 12px; font-style: italic; color: var(--text-mid); border-left: 2px solid var(--yellow); padding-left: 10px; line-height: 1.5; }
+
+/* "YOU'VE TRIED" SECTION */
+.tried-bg { background: var(--cream); border-bottom: 1px solid var(--border); }
+.tried-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tried-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+.tried-card.novem { border-color: var(--yellow); border-width: 2px; }
+.tried-icon { font-size: 30px; margin-bottom: 12px; display: block; }
+.tried-name { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
+.tried-text { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
+.tried-verdict { margin-top: 12px; padding: 8px 12px; background: var(--cream); border-radius: var(--radius-sm); font-size: 11px; font-weight: 700; color: var(--text-mid); }
+.tried-card.novem .tried-verdict { background: var(--yellow); color: var(--dark); }
+
+/* HOW IT WORKS — 2 steps */
+.how-bg { background: var(--off-white); border-bottom: 1px solid var(--border); }
+.steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.step-num { font-family: 'Noto Serif JP', serif; font-size: 64px; font-weight: 700; color: var(--border); line-height: 1; margin-bottom: -8px; }
+.step-icon { font-size: 36px; margin-bottom: 12px; display: block; }
+.step-title { font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.3; }
+.step-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
+.step-promise { margin-top: 14px; padding: 12px 16px; background: var(--white); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 12px; color: var(--dark); font-weight: 600; }
+
+/* ANNOTATED INGREDIENTS */
+.annot-bg { background: var(--white); border-bottom: 1px solid var(--border); }
+.annot-product { margin-bottom: 80px; }
+.annot-product:last-child { margin-bottom: 0; }
+.annot-prod-header { text-align: center; margin-bottom: 40px; }
+.annot-prod-timing { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--text-light); }
+.annot-prod-name { font-family: 'Noto Serif JP', serif; font-size: 26px; color: var(--dark); font-weight: 700; margin-top: 6px; }
+.annot-stage { position: relative; max-width: 820px; margin: 0 auto; height: 400px; }
+.annot-center-img { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 150px; height: 190px; border-radius: 16px; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 64px; box-shadow: 0 8px 32px rgba(46,30,30,0.1); z-index: 2; }
+.annot-box { position: absolute; width: 240px; }
+.annot-box-inner { background: var(--dark); color: white; padding: 12px 15px; border-radius: var(--radius-sm); font-size: 12px; line-height: 1.5; }
+.annot-box-inner.light { background: var(--cream); color: var(--dark); border: 1px solid var(--border); }
+.annot-ingr { font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; font-size: 12px; }
+.annot-why { color: rgba(255,255,255,0.62); font-size: 11px; line-height: 1.5; }
+.annot-why-light { color: var(--text-mid); font-size: 11px; line-height: 1.5; }
+.annot-line { display: block; width: 80px; height: 2px; background: repeating-linear-gradient(90deg, var(--yellow) 0, var(--yellow) 4px, transparent 4px, transparent 7px); position: relative; }
+.annot-line::after { content: ''; position: absolute; right: -5px; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+.annot-line.rev::after { right: auto; left: -5px; }
+
+/* MID CTA */
+.mid-cta { background: var(--dark); padding: 56px 48px; text-align: center; }
+.mid-stars { color: var(--yellow); font-size: 30px; margin-bottom: 8px; }
+.mid-count { font-size: 12px; color: rgba(255,255,255,0.38); margin-bottom: 20px; letter-spacing: 1px; }
+.mid-quote { font-family: 'Noto Serif JP', serif; font-size: 22px; font-style: italic; color: white; max-width: 580px; margin: 0 auto 8px; line-height: 1.4; font-weight: 300; }
+.mid-name { font-size: 12px; color: rgba(255,255,255,0.32); margin-bottom: 32px; }
+.btn-mid { display: inline-block; padding: 16px 52px; background: var(--yellow); color: var(--dark); border: none; border-radius: var(--radius); font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; margin-bottom: 14px; transition: opacity 0.2s; }
+.btn-mid:hover { opacity: 0.88; }
+.mid-pay { display: flex; gap: 8px; justify-content: center; }
+.mid-pay-ico { padding: 4px 10px; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.35); }
+
+/* PROFILES */
+.profiles-bg { background: var(--off-white); border-bottom: 1px solid var(--border); }
+.profiles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.prof-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.prof-head { background: var(--cream); padding: 20px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--border); }
+.prof-icon { font-size: 30px; }
+.prof-name { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 700; color: var(--dark); line-height: 1.2; }
+.prof-desc { font-size: 11px; color: var(--text-light); margin-top: 3px; }
+.prof-body { padding: 18px 20px; }
+.prof-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); font-weight: 700; margin-bottom: 8px; }
+.prof-text { font-size: 13px; color: var(--text-mid); line-height: 1.65; margin-bottom: 14px; }
+.prof-res { background: var(--cream); padding: 10px 14px; border-radius: var(--radius-sm); font-size: 12px; color: var(--dark); font-weight: 600; }
+
+/* WHAT'S INCLUDED */
+.inc-bg { background: var(--white); border-bottom: 1px solid var(--border); }
+.inc-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; max-width: 1100px; margin: 0 auto; padding: 64px 48px; }
+.inc-img { background: linear-gradient(135deg, var(--cream), var(--mid-cream)); border-radius: 16px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+.inc-items { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.inc-row { display: flex; align-items: flex-start; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); font-size: 13px; }
+.inc-row:last-child { border-bottom: none; }
+.inc-ck { color: var(--dark); font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+.inc-name { font-weight: 700; display: block; }
+.inc-detail { font-size: 11px; color: var(--text-light); }
+.btn-inc { width: 100%; padding: 16px; background: var(--dark); color: white; border: none; border-radius: var(--radius); font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; letter-spacing: 0.5px; transition: opacity 0.2s; }
+.btn-inc:hover { opacity: 0.9; }
+
+/* COMPARISON TABLE */
+.comp-bg { background: var(--dark); padding: 72px 48px; }
+.comp-in { max-width: 980px; margin: 0 auto; }
+.comp-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; }
+.comp-table th { padding: 14px 16px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; text-align: center; font-family: 'Poppins', sans-serif; }
+.comp-table th:first-child { text-align: left; background: transparent; color: rgba(255,255,255,0.18); font-size: 9px; }
+.th-nv { background: var(--yellow); color: var(--dark); }
+.th-ot { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.3); font-size: 10px; }
+.comp-table td { padding: 13px 16px; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; vertical-align: top; }
+.comp-table td:first-child { text-align: left; }
+.fn { color: rgba(255,255,255,0.75); font-size: 13px; display: block; font-weight: 600; }
+.fw { color: rgba(255,255,255,0.28); font-size: 11px; font-style: italic; margin-top: 2px; line-height: 1.4; display: block; }
+.td-nv { background: rgba(243,207,74,0.1); color: #f3d870; font-weight: 700; }
+.td-ot { color: rgba(255,255,255,0.2); }
+.ck { color: #6acc7a; font-size: 16px; }
+.ck-p { color: rgba(243,207,74,0.5); font-size: 14px; }
+.xk { color: rgba(255,255,255,0.1); font-size: 16px; }
+.comp-note { font-size: 11px; color: rgba(255,255,255,0.18); margin-top: 12px; font-style: italic; text-align: right; }
+
+/* REVIEWS */
+.rev-bg { background: var(--white); border-top: 1px solid var(--border); }
+.rev-layout { display: grid; grid-template-columns: 260px 1fr; gap: 48px; }
+.rev-big { font-family: 'Noto Serif JP', serif; font-size: 72px; font-weight: 700; color: var(--dark); line-height: 1; }
+.rev-stars-main { color: #f0a800; font-size: 30px; margin-bottom: 6px; }
+.rev-tot { font-size: 12px; color: var(--text-light); margin-bottom: 22px; }
+.br-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.br-lbl { font-size: 11px; color: var(--text-light); width: 36px; text-align: right; }
+.br-track { flex: 1; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.br-fill { height: 100%; background: #f0a800; border-radius: 3px; }
+.br-num { font-size: 11px; color: var(--text-light); width: 24px; }
+.words-box { margin-top: 18px; padding: 14px; background: var(--cream); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-mid); border: 1px solid var(--border); }
+.words-box strong { display: block; color: var(--dark); margin-bottom: 5px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.rev-list { display: flex; flex-direction: column; gap: 16px; }
+.rev-card { padding: 18px 20px; background: var(--off-white); border: 1px solid var(--border); border-radius: 12px; }
+.rev-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.rev-name { font-weight: 700; font-size: 13px; color: var(--dark); }
+.rev-meta { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+.rev-stars-sm { color: #f0a800; font-size: 30px; line-height: 1; }
+.rev-title { font-family: 'Noto Serif JP', serif; font-size: 16px; color: var(--dark); font-style: italic; margin-bottom: 6px; font-weight: 400; }
+.rev-body { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
+.rev-tag { display: inline-block; margin-top: 10px; padding: 3px 10px; background: var(--cream); border-radius: 20px; font-size: 10px; color: var(--dark); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* FAQ */
+.faq-bg { background: var(--off-white); border-top: 1px solid var(--border); padding: 64px 48px; }
+.faq-in { max-width: 700px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+.faq-q { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 700; color: var(--dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-q span { color: var(--text-light); font-size: 20px; font-weight: 300; }
+.faq-a { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-top: 12px; }
+
+/* UPSELL */
+.upsell-bg { background: var(--white); border-top: 1px solid var(--border); padding: 56px 48px; }
+.upsell-in { max-width: 1000px; margin: 0 auto; }
+.upsell-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+.up-card { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--off-white); }
+.up-img { height: 130px; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 48px; border-bottom: 1px solid var(--border); }
+.up-body { padding: 16px; }
+.up-name { font-family: 'Noto Serif JP', serif; font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 4px; line-height: 1.3; }
+.up-desc { font-size: 11px; color: var(--text-light); line-height: 1.4; margin-bottom: 10px; }
+.up-price { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+.up-btn { width: 100%; padding: 9px; background: transparent; border: 2px solid var(--dark); border-radius: var(--radius); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; font-family: 'Poppins', sans-serif; color: var(--dark); font-weight: 700; transition: all 0.15s; }
+.up-btn:hover { background: var(--dark); color: white; }
+
+/* FINAL CTA */
+.final-cta { background: var(--cream); border-top: 1px solid var(--border); padding: 80px 48px; text-align: center; }
+.final-cta h2 { font-family: 'Noto Serif JP', serif; font-size: 44px; font-weight: 700; color: var(--dark); line-height: 1.2; margin-bottom: 12px; }
+.final-cta h2 em { font-style: italic; font-weight: 300; }
+.final-cta p { font-size: 14px; color: var(--text-mid); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+.btn-final { display: inline-block; padding: 18px 60px; background: var(--dark); color: white; border: none; border-radius: var(--radius); font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; margin-bottom: 14px; box-shadow: 0 4px 24px rgba(46,30,30,0.18); transition: opacity 0.2s; }
+.btn-final:hover { opacity: 0.9; }
+.final-trust { font-size: 11px; color: var(--text-light); }
+
+/* STICKY */
+.sticky { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid var(--border); padding: 12px 48px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 -8px 32px rgba(0,0,0,0.06); z-index: 200; transform: translateY(100%); transition: transform 0.3s ease; }
+.sticky.show { transform: translateY(0); }
+.st-prod { font-family: 'Noto Serif JP', serif; font-size: 17px; color: var(--dark); font-weight: 700; }
+.st-sub { font-size: 11px; color: var(--text-light); }
+.st-price { font-family: 'Noto Serif JP', serif; font-size: 22px; color: var(--dark); font-weight: 700; }
+.st-btn { padding: 12px 32px; background: var(--dark); color: white; border: none; border-radius: var(--radius); font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; }
+
+/* SHARED */
+.sec-wrap { max-width: 1100px; margin: 0 auto; padding: 64px 48px; }
+.sec-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 10px; }
+.sec-title { font-family: 'Noto Serif JP', serif; font-size: 38px; color: var(--dark); font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+.sec-title em { font-style: italic; font-weight: 300; color: var(--text-mid); }
+.sec-sub { font-size: 14px; color: var(--text-mid); max-width: 520px; margin-bottom: 44px; line-height: 1.7; }
+footer { background: var(--dark); color: rgba(255,255,255,0.25); padding: 32px 48px 80px; font-size: 11px; text-align: center; }
+footer p { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="tb-item">🇫🇷 <span class="tb-hl">Formulé & fabriqué à Grenoble</span></div>
+  <div class="tb-item">⭐ +500 clientes satisfaites</div>
+  <div class="tb-item">🚚 Livraison offerte dès 55€</div>
+  <div class="tb-item">↩ 30 jours satisfaite ou remboursée</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-links">
+    <a href="#">Nos produits</a>
+    <a href="#">Routines</a>
+    <a href="#">Besoins</a>
+    <a href="#">Ateliers</a>
+  </div>
+  <div class="nav-logo">
+    <img src="https://www.novemlab.co/cdn/shop/files/PRES.png?v=1722932932&width=500" alt="Novëm"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-txt" style="display:none;">Novëm</span>
+  </div>
+  <div style="display:flex; align-items:center; gap:14px;">
+    <a href="#" style="font-size:11px; color:var(--text-mid); text-decoration:none;">Diagnostic</a>
+    <a href="#" class="nav-cart">🛒 Panier (0)</a>
+  </div>
+</nav>
+<div class="breadcrumb">Accueil › Routines › <strong>Routine visage anti-rougeurs</strong></div>
+
+
+<!-- ══════════════════════════════════
+  1. HERO — BEFORE / AFTER SLIDER
+══════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-tag">Testé dermatologiquement · Premiers résultats dès 2 semaines · Formulé à Grenoble</div>
+  <h1 class="hero-h1">Finies les rougeurs.<br><em>Chaque matin.</em></h1>
+  <p class="hero-sub">La routine complète pour les peaux sensibles et réactives. Formulée pour agir en profondeur, pas juste en surface.</p>
+
+  <div class="ba-wrap" id="baSlider">
+    <div class="ba-stage">
+      <div class="ba-after">
+        <div class="ba-after-inner">
+          <span class="ba-emoji-after">🌸</span>
+          <div class="ba-title-after">Teint unifié, rougeurs apaisées</div>
+          <div class="ba-sub-after">Après 4 semaines · Routine Novëm</div>
+        </div>
+      </div>
+      <div class="ba-before" id="baBefore">
+        <div class="ba-before-inner">
+          <div class="ba-before-cnt">
+            <span class="ba-emoji-before">😣</span>
+            <div class="ba-title-before">Rougeurs, réactivité, inconfort</div>
+            <div class="ba-sub-before">Avant · Peau sensible réactive</div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-handle" id="baHandle"><div class="ba-knob">⇔</div></div>
+      <div class="ba-labels">
+        <div class="ba-lbl ba-lbl-b">Avant</div>
+        <div class="ba-lbl ba-lbl-a">Après 4 semaines</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="ba-hint">← Faites glisser pour comparer →</p>
+
+  <div class="ba-pills">
+    <div class="ba-pill"><span class="ba-pill-ck">✅</span> Réduit les rougeurs visibles</div>
+    <div class="ba-pill"><span class="ba-pill-ck">✅</span> Apaise la réactivité</div>
+    <div class="ba-pill"><span class="ba-pill-ck">✅</span> Renforce la barrière cutanée</div>
+    <div class="ba-pill"><span class="ba-pill-ck">✅</span> Sans parfum ni alcool</div>
+    <div class="ba-pill"><span class="ba-pill-ck">✅</span> Premiers résultats dès 2 semaines</div>
+  </div>
+
+  <div class="hero-bottom">
+    <button class="btn-hero" onclick="document.getElementById('buybox').scrollIntoView({behavior:'smooth'})">
+      Découvrir la routine ... 59,00€
+    </button>
+    <div class="hero-rating">
+      <span class="hero-stars">★★★★★</span>
+      <strong style="color:white;">4.8/5</strong>
+      <span>· 127 avis vérifiés</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+  2. STATS STRIP
+══════════════════════════════════ -->
+<div class="stats-strip">
+  <div class="st-item">
+    <div class="st-num">2 sem.</div>
+    <div class="st-label"><strong>Premiers résultats</strong>visibles dès 2 semaines</div>
+  </div>
+  <div class="st-item">
+    <div class="st-num">88%</div>
+    <div class="st-label"><strong>Clientes satisfaites</strong>à 4 semaines d'utilisation</div>
+  </div>
+  <div class="st-item">
+    <div class="st-num">98%</div>
+    <div class="st-label"><strong>Ingrédients naturels</strong>formule propre validée</div>
+  </div>
+  <div class="st-item">
+    <div class="st-num">0</div>
+    <div class="st-label"><strong>Ingrédient controversé</strong>sans parfum ni alcool</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  3. BUY BOX
+══════════════════════════════════ -->
+<section class="buybox" id="buybox">
+<div class="buybox-inner">
+  <div class="bb-imgs">
+    <div class="bb-main">
+      <div class="bb-main-badge">✨ Duo Best Seller</div>
+      <span style="font-size:90px;">🧴</span>
+    </div>
+    <div class="bb-thumbs">
+      <div class="bb-thumb on">🧴</div>
+      <div class="bb-thumb">🌿</div>
+      <div class="bb-thumb">🌅</div>
+      <div class="bb-thumb">🌙</div>
+    </div>
+    <div class="bb-derma">
+      <strong>🔬 Testé sous contrôle dermatologique</strong>
+      Formulé et fabriqué dans nos ateliers à Grenoble
+    </div>
+  </div>
+
+  <div class="bb-form">
+    <div class="bb-badges">
+      <div class="bb-badge">🔬 Validé dermatologiquement</div>
+      <div class="bb-badge">🇫🇷 Made in Grenoble</div>
+      <div class="bb-badge">🌿 98% naturel</div>
+    </div>
+
+    <h2 class="bb-title">Routine visage<br>anti-rougeurs</h2>
+    <p class="bb-sub">Huile Apaisante 30ml + Crème Noix de Cajou 50ml · Matin & soir</p>
+
+    <div class="rating-row">
+      <div class="stars-g">★★★★★</div>
+      <span class="r-score">4.8</span>
+      <span class="r-sep">·</span>
+      <span class="r-count">127 avis vérifiés</span>
+      <span class="r-sep">·</span>
+      <span class="r-badge">💊 Recommandée par des dermatologues</span>
+    </div>
+
+    <div class="sb-row">
+      <div class="sb-item">
+        <div class="sb-num">2 sem.</div>
+        <div class="sb-label">Premiers<br>résultats</div>
+      </div>
+      <div class="sb-item">
+        <div class="sb-num">88%</div>
+        <div class="sb-label">Satisfaction<br>à 4 semaines</div>
+      </div>
+      <div class="sb-item">
+        <div class="sb-num">2 min</div>
+        <div class="sb-label">Par jour<br>suffit</div>
+      </div>
+    </div>
+
+    <div class="price-row">
+      <div class="price-main">59,00€</div>
+      <div class="price-old">67,00€</div>
+      <div class="price-save">... 8€</div>
+    </div>
+    <p class="price-sub">Soit <strong>8€ d'économie</strong> vs les deux produits achetés séparément</p>
+
+    <div class="trust-buls">
+      <div class="tbul">
+        <span class="tbul-ico">🌿</span>
+        <div class="tbul-txt">
+          <strong>Sans parfum, sans alcool ... formulé pour les peaux les plus réactives</strong>
+          <span>Y compris couperose diagnostiquée et peaux atopiques</span>
+        </div>
+      </div>
+      <div class="tbul">
+        <span class="tbul-ico">🔬</span>
+        <div class="tbul-txt">
+          <strong>Testé sous contrôle dermatologique ... résultats cliniques à 4 semaines</strong>
+          <span>Premiers résultats visibles dès 2 semaines pour la majorité</span>
+        </div>
+      </div>
+      <div class="tbul">
+        <span class="tbul-ico">🇫🇷</span>
+        <div class="tbul-txt">
+          <strong>Formulé et fabriqué à Grenoble ... ingrédients traçables</strong>
+          <span>Ateliers Novëm · Production artisanale · Recharges disponibles</span>
+        </div>
+      </div>
+      <div class="tbul">
+        <span class="tbul-ico">🎁</span>
+        <div class="tbul-txt">
+          <strong>Cadeau surprise dès 90€ d'achat</strong>
+          <span>Automatiquement ajouté à votre panier</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mini-rev">
+      <div class="mr-stars">★★★★★</div>
+      <div class="mr-quote">"J'ai essayé des dizaines de crèmes pendant des années. Avec Novëm, en 3 semaines mes rougeurs ont vraiment diminué. Enfin quelque chose qui agit en profondeur."</div>
+      <div class="mr-name">Sophie M. · Avis vérifié · Peau sensible, couperose · il y a 3 semaines</div>
+    </div>
+
+    <button class="btn-cart">🛒 Ajouter au panier ... 59,00€</button>
+    <button class="btn-sec">Acheter maintenant</button>
+    <div class="pay-icons">
+      <div class="pay-ico">Visa</div>
+      <div class="pay-ico">Mastercard</div>
+      <div class="pay-ico">CB</div>
+      <div class="pay-ico">PayPal</div>
+      <div class="pay-ico">Apple Pay</div>
+      <div class="pay-ico">4x sans frais</div>
+    </div>
+    <div class="del-row">
+      <span>🚚 Expédition sous 24h</span>
+      <span>↩ 30 jours retours</span>
+      <span>🔒 Paiement sécurisé</span>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- ══════════════════════════════════
+  4. TIMELINE — right after buy box
+══════════════════════════════════ -->
+<div class="tl-bg">
+<div class="sec-wrap">
+  <div class="sec-tag">Ce que vous allez sentir et voir</div>
+  <h2 class="sec-title">Semaine après semaine,<br><em>votre peau change.</em></h2>
+  <p class="sec-sub">Ce que rapportent les utilisatrices ... semaine après semaine.</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot lit">J1</div>
+      <div class="tl-when">Dès le 1er soir</div>
+      <div class="tl-name">Confort immédiat</div>
+      <div class="tl-desc">La crème apaise les sensations de tiraillement. Votre peau se sent moins tendue dès la première application.</div>
+      <div class="tl-feel">"Ma peau a arrêté de tirer dès le premier soir."</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot lit">S2</div>
+      <div class="tl-when">Semaine 2</div>
+      <div class="tl-name">Réactivité en baisse</div>
+      <div class="tl-desc">Votre peau rougit moins facilement. Le matin, le teint est plus uniforme. Vous sortez avec moins de fond de teint.</div>
+      <div class="tl-feel">"Pour la première fois, je n'ai pas mis de fond de teint un matin."</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot lit">S3</div>
+      <div class="tl-when">Semaine 3</div>
+      <div class="tl-name">L'entourage remarque</div>
+      <div class="tl-desc">Les rougeurs sont visiblement moins prononcées. Quelqu'un vous demande si vous avez changé quelque chose.</div>
+      <div class="tl-feel">"Ma sœur m'a dit que j'avais l'air moins fatiguée."</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">S4</div>
+      <div class="tl-when">Semaine 4</div>
+      <div class="tl-name">Rougeurs réduites durablement</div>
+      <div class="tl-desc">88% des utilisatrices constatent une amélioration visible. Votre peau est moins réactive. Vous ne pouvez plus vous en passer.</div>
+      <div class="tl-feel">"J'ai offert la routine à ma mère. Je ne pouvais pas garder ça pour moi."</div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  5. VOUS AVEZ PROBABLEMENT DÉJÀ ESSAYÉ
+══════════════════════════════════ -->
+<div class="tried-bg">
+<div class="sec-wrap">
+  <div class="sec-tag">La question honnête</div>
+  <h2 class="sec-title">Vous avez probablement<br><em>déjà essayé quelque chose.</em></h2>
+  <p class="sec-sub" style="margin-bottom:36px;">Voici pourquoi ça n'a pas suffi ... et pourquoi cette routine est différente.</p>
+  <div class="tried-grid">
+    <div class="tried-card">
+      <span class="tried-icon">🏪</span>
+      <div class="tried-name">Les crèmes "peaux sensibles" de pharmacie ou grande distribution</div>
+      <div class="tried-text">Elles calment la surface sur le moment. Mais elles contiennent souvent des parfums et des conservateurs qui irritent les peaux réactives sur la durée. Le problème de fond ... la barrière cutanée défaillante ... n'est pas traité.</div>
+      <div class="tried-verdict">✗ Agit sur le symptôme, pas sur la cause</div>
+    </div>
+    <div class="tried-card">
+      <span class="tried-icon">🌿</span>
+      <div class="tried-name">Les soins naturels non formulés pour les rougeurs</div>
+      <div class="tried-text">Bonne intention, composition propre. Mais sans formulation ciblée sur la réactivité cutanée, certains ingrédients naturels peuvent aussi irriter ... camomille, huiles essentielles, extraits floraux.</div>
+      <div class="tried-verdict">~ Propre mais pas spécialisé</div>
+    </div>
+    <div class="tried-card novem">
+      <span class="tried-icon">✨</span>
+      <div class="tried-name">La routine Novëm anti-rougeurs</div>
+      <div class="tried-text">Formulée spécifiquement pour les peaux réactives et couperosées. Sans parfum ni alcool. Testée sous contrôle dermatologique. Fabriquée à Grenoble. Premiers résultats visibles dès 2 semaines.</div>
+      <div class="tried-verdict">✓ Spécialisée · Testée · Premiers résultats dès 2 semaines</div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  6. HOW IT WORKS — 2 STEPS
+══════════════════════════════════ -->
+<div class="how-bg">
+<div class="sec-wrap">
+  <div class="sec-tag">Comment ça marche</div>
+  <h2 class="sec-title">Deux produits.<br><em>Un système cohérent.</em></h2>
+  <p class="sec-sub">Chaque produit a un rôle précis dans la journée. Ensemble, ils s'attaquent aux rougeurs à deux niveaux.</p>
+  <div class="steps-grid">
+    <div>
+      <div class="step-num">01</div>
+      <span class="step-icon">🌅</span>
+      <div class="step-title">Le matin ... L'Huile Apaisante</div>
+      <div class="step-desc">Quelques gouttes avant votre crème habituelle. Elle calme les inflammations, renforce la barrière cutanée et prépare la peau pour les agressions de la journée. Votre peau part du bon pied.</div>
+      <div class="step-promise">🌱 Centella Asiatica · Calendula · Complexe barrière · Sans parfum</div>
+    </div>
+    <div>
+      <div class="step-num">02</div>
+      <span class="step-icon">🌙</span>
+      <div class="step-title">Le soir ... La Crème Noix de Cajou</div>
+      <div class="step-desc">Après le démaquillage. Elle répare la barrière cutanée en profondeur pendant la nuit et réduit la réactivité chronique. Le travail de fond se fait quand vous dormez.</div>
+      <div class="step-promise">🥜 Beurre de cajou · Acide hyaluronique · Aloe vera · Sans alcool</div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  7. ANNOTATED INGREDIENTS
+══════════════════════════════════ -->
+<div class="annot-bg">
+<div class="sec-wrap">
+  <div class="sec-tag">Ce qui est dedans</div>
+  <h2 class="sec-title">Chaque ingrédient a<br><em>une raison précise.</em></h2>
+  <p class="sec-sub">Pas une liste d'ingrédients ... une intention derrière chacun.</p>
+
+  <!-- PRODUCT 1 -->
+  <div class="annot-product">
+    <div class="annot-prod-header">
+      <div class="annot-prod-timing">Soin du matin</div>
+      <div class="annot-prod-name">L'Huile Apaisante Anti-Rougeurs</div>
+    </div>
+    <div class="annot-stage">
+      <div class="annot-center-img" style="background:linear-gradient(145deg,var(--cream),var(--mid-cream));">🌿</div>
+
+      <!-- top left -->
+      <div class="annot-box" style="left:0; top:30px;">
+        <div class="annot-box-inner">
+          <div class="annot-ingr">🌱 Centella Asiatica</div>
+          <div class="annot-why">Anti-inflammatoire cliniquement prouvé. Réduit la rougeur à sa source, pas juste en surface.</div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; margin-top:6px; align-items:center; gap:0;">
+          <span style="flex:1; height:2px; background:repeating-linear-gradient(90deg,var(--yellow) 0,var(--yellow) 4px,transparent 4px,transparent 7px);"></span>
+          <span style="width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;"></span>
+        </div>
+      </div>
+
+      <!-- top right -->
+      <div class="annot-box" style="right:0; top:30px;">
+        <div style="display:flex; justify-content:flex-start; margin-bottom:6px; align-items:center;">
+          <span style="width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;"></span>
+          <span style="flex:1; height:2px; background:repeating-linear-gradient(90deg,var(--yellow) 0,var(--yellow) 4px,transparent 4px,transparent 7px);"></span>
+        </div>
+        <div class="annot-box-inner">
+          <div class="annot-ingr">🌼 Calendula bio</div>
+          <div class="annot-why">Apaise la réactivité. Votre peau répond moins fort au froid, au stress, à la pollution.</div>
+        </div>
+      </div>
+
+      <!-- bottom left -->
+      <div class="annot-box" style="left:0; bottom:30px;">
+        <div style="display:flex; justify-content:flex-end; margin-bottom:6px; align-items:center;">
+          <span style="flex:1; height:2px; background:repeating-linear-gradient(90deg,var(--yellow) 0,var(--yellow) 4px,transparent 4px,transparent 7px);"></span>
+          <span style="width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;"></span>
+        </div>
+        <div class="annot-box-inner">
+          <div class="annot-ingr">🛡️ Complexe barrière</div>
+          <div class="annot-why">Renforce l'imperméabilité cutanée. Empêche la perte d'eau ... première cause de la réactivité chronique.</div>
+        </div>
+      </div>
+
+      <!-- bottom right -->
+      <div class="annot-box" style="right:0; bottom:30px;">
+        <div style="display:flex; justify-content:flex-start; margin-bottom:6px; align-items:center;">
+          <span style="width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;"></span>
+          <span style="flex:1; height:2px; background:repeating-linear-gradient(90deg,var(--yellow) 0,var(--yellow) 4px,transparent 4px,transparent 7px);"></span>
+        </div>
+        <div class="annot-box-inner light">
+          <div class="annot-ingr">🚫 Sans parfum · Sans alcool</div>
+          <div class="annot-why-light">Les deux ingrédients qui déclenchent le plus souvent la réactivité. Absents de toute la formule.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="annot-product">
+    <div class="annot-prod-header">
+      <div class="annot-prod-timing">Soin du soir</div>
+      <div class="annot-prod-name">La Crème Noix de Cajou</div>
+    </div>
+    <div class="annot-stage">
+      <div class="annot-center-img" style="background:linear-gradient(145deg,#f5eedd,#ede0c8);">🥜</div>
+
+      <!-- top left -->
+      <div class="annot-box" style="left:0; top:30px;">
+        <div class="annot-box-inner">
+          <div class="annot-ingr">🥜 Beurre de noix de cajou</div>
+          <div class="annot-why">Répare la barrière cutanée pendant la nuit. Riche en acides gras essentiels ... là où la peau se régénère naturellement.</div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; margin-top:6px; align-items:center;">
+          <span style="flex:1; height:2px; background:repeating-linear-gradient(90deg,var(--yellow) 0,var(--yellow) 4px,transparent 4px,transparent 7px);"></span>
+          <span style="width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;"></span>
+        </div>
+      </div>
+
+      <!-- top right -->
+      <div class="annot-box" style="right:0; top:30px;">
+        <div style="display:flex; justify-content:flex-start; margin-bottom:6px; align-items:center;">
+          <span style="width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;"></span>
+          <span style="flex:1; height:2px; background:repeating-linear-gradient(90deg,var(--yellow) 0,var(--yellow) 4px,transparent 4px,transparent 7px);"></span>
+        </div>
+        <div class="annot-box-inner">
+          <div class="annot-ingr">💧 Acide hyaluronique</div>
+          <div class="annot-why">Hydratation en profondeur toute la nuit. Une peau bien hydratée rougit moins facilement.</div>
+        </div>
+      </div>
+
+      <!-- bottom left -->
+      <div class="annot-box" style="left:0; bottom:30px;">
+        <div style="display:flex; justify-content:flex-end; margin-bottom:6px; align-items:center;">
+          <span style="flex:1; height:2px; background:repeating-linear-gradient(90deg,var(--yellow) 0,var(--yellow) 4px,transparent 4px,transparent 7px);"></span>
+          <span style="width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;"></span>
+        </div>
+        <div class="annot-box-inner">
+          <div class="annot-ingr">🌸 Aloe vera & extrait de rose</div>
+          <div class="annot-why">Apaisants naturels qui calment l'inflammation visible. Teint plus uniforme dès le lendemain matin.</div>
+        </div>
+      </div>
+
+      <!-- bottom right -->
+      <div class="annot-box" style="right:0; bottom:30px;">
+        <div style="display:flex; justify-content:flex-start; margin-bottom:6px; align-items:center;">
+          <span style="width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;"></span>
+          <span style="flex:1; height:2px; background:repeating-linear-gradient(90deg,var(--yellow) 0,var(--yellow) 4px,transparent 4px,transparent 7px);"></span>
+        </div>
+        <div class="annot-box-inner light">
+          <div class="annot-ingr">🔬 98% naturel · INCI validé</div>
+          <div class="annot-why-light">Composition vérifiable et transparente. Aucun ingrédient discuté. Fabriquée à Grenoble.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  8. MID-PAGE CTA
+══════════════════════════════════ -->
+<div class="mid-cta">
+  <div class="mid-stars">★★★★★</div>
+  <div class="mid-count">127 clientes avec des peaux sensibles l'ont testée</div>
+  <div class="mid-quote">"J'ai essayé des crèmes pendant deux ans. Avec Novëm, en 3 semaines mes rougeurs ont vraiment diminué. C'est la première fois qu'un soin agit vraiment en profondeur."</div>
+  <div class="mid-name">Marie T. · Avis vérifié · Peau sensible, couperose</div>
+  <button class="btn-mid" onclick="document.getElementById('buybox').scrollIntoView({behavior:'smooth'})">
+    Ajouter au panier ... 59,00€
+  </button>
+  <div class="mid-pay">
+    <div class="mid-pay-ico">Visa</div>
+    <div class="mid-pay-ico">Mastercard</div>
+    <div class="mid-pay-ico">PayPal</div>
+    <div class="mid-pay-ico">4x sans frais</div>
+    <div class="mid-pay-ico">Apple Pay</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  9. PROFILES — POUR VOUS SI
+══════════════════════════════════ -->
+<div class="profiles-bg">
+<div class="sec-wrap">
+  <div class="sec-tag">Pour qui ?</div>
+  <h2 class="sec-title">Cette routine est faite<br><em>pour vous si...</em></h2>
+  <p class="sec-sub" style="margin-bottom:36px;">Trois profils de clientes pour qui la routine Novëm fait vraiment la différence.</p>
+  <div class="profiles-grid">
+    <div class="prof-card">
+      <div class="prof-head">
+        <div class="prof-icon">💄</div>
+        <div>
+          <div class="prof-name">Tu mets du fond de teint chaque matin pour couvrir tes rougeurs</div>
+          <div class="prof-desc">Quotidien · Couperose · Teint inégal</div>
+        </div>
+      </div>
+      <div class="prof-body">
+        <div class="prof-label">Ton quotidien</div>
+        <div class="prof-text">Tu ne sors jamais sans fond de teint. Pas par choix ... parce que ta peau rouge te met mal à l'aise. Tu aimerais juste te lever le matin et ne pas avoir à couvrir quoi que ce soit.</div>
+        <div class="prof-res">✓ 88% des utilisatrices réduisent leur fond de teint dès 4 semaines</div>
+      </div>
+    </div>
+    <div class="prof-card">
+      <div class="prof-head">
+        <div class="prof-icon">😤</div>
+        <div>
+          <div class="prof-name">Tu as essayé des crèmes peaux sensibles sans résultat durable</div>
+          <div class="prof-desc">Déçue · Sceptique · A tout essayé</div>
+        </div>
+      </div>
+      <div class="prof-body">
+        <div class="prof-label">Ton vécu</div>
+        <div class="prof-text">Tu as dépensé beaucoup d'argent. Ça calmait sur le moment mais les rougeurs revenaient. Tu es sceptique. Tu cherches quelque chose qui agit en profondeur, pas juste en surface.</div>
+        <div class="prof-res">✓ Agit sur la barrière cutanée ... pas juste sur le symptôme visible</div>
+      </div>
+    </div>
+    <div class="prof-card">
+      <div class="prof-head">
+        <div class="prof-icon">🌡️</div>
+        <div>
+          <div class="prof-name">Ta peau rougit à tout ... froid, vin, sport, stress</div>
+          <div class="prof-desc">Peau réactive · Hypersensible · Couperose</div>
+        </div>
+      </div>
+      <div class="prof-body">
+        <div class="prof-label">Ton quotidien</div>
+        <div class="prof-text">Un verre de vin, une sortie au froid, une journée de stress ... et ta peau le montre tout de suite. Tu cherches quelque chose qui réduit cette réactivité sur le long terme, pas juste dans l'instant.</div>
+        <div class="prof-res">✓ Formulée pour réduire la réactivité chronique dès 2 semaines</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  10. WHAT'S INCLUDED
+══════════════════════════════════ -->
+<div class="inc-bg">
+<div class="inc-inner">
+  <div class="inc-img">🧴✨</div>
+  <div>
+    <div class="sec-tag">Ce que vous recevez</div>
+    <h2 class="sec-title" style="font-size:30px; margin-bottom:24px;">Tout ce qu'il faut.<br><em>Rien de superflu.</em></h2>
+    <div class="inc-items">
+      <div class="inc-row">
+        <span class="inc-ck">✓</span>
+        <div><span class="inc-name">Huile Apaisante Anti-Rougeurs ... 30ml</span><span class="inc-detail">Soin du matin · Centella Asiatica · Calendula · Sans parfum</span></div>
+      </div>
+      <div class="inc-row">
+        <span class="inc-ck">✓</span>
+        <div><span class="inc-name">Crème Noix de Cajou ... 50ml</span><span class="inc-detail">Soin du soir · Beurre cajou · Acide hyaluronique · Sans alcool</span></div>
+      </div>
+      <div class="inc-row">
+        <span class="inc-ck">✓</span>
+        <div><span class="inc-name">Guide d'utilisation Routine Novëm</span><span class="inc-detail">Inclus dans chaque commande · Instructions matin et soir</span></div>
+      </div>
+      <div class="inc-row">
+        <span class="inc-ck">✓</span>
+        <div><span class="inc-name">Accès aux ateliers Novëm ... Grenoble</span><span class="inc-detail">Conseil personnalisé en boutique · Sur rendez-vous</span></div>
+      </div>
+      <div class="inc-row">
+        <span class="inc-ck" style="color:var(--yellow);">🎁</span>
+        <div><span class="inc-name">Cadeau surprise dès 90€ d'achat</span><span class="inc-detail">Automatiquement ajouté à votre panier</span></div>
+      </div>
+      <div class="inc-row">
+        <span class="inc-ck">♻️</span>
+        <div><span class="inc-name">Packaging éco-responsable · Recharges disponibles</span><span class="inc-detail">Réduisez votre impact · Même formule, moins de déchets</span></div>
+      </div>
+    </div>
+    <button class="btn-inc" onclick="document.getElementById('buybox').scrollIntoView({behavior:'smooth'})">
+      Commander la routine ... 59,00€
+    </button>
+  </div>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  11. COMPARISON TABLE
+══════════════════════════════════ -->
+<div class="comp-bg">
+<div class="comp-in">
+  <div class="sec-tag" style="color:rgba(255,255,255,0.35);">La comparaison honnête</div>
+  <h2 class="sec-title" style="color:white; font-size:36px;">Pas juste naturel.<br><em style="color:var(--yellow);">Vraiment efficace.</em></h2>
+  <p class="sec-sub" style="color:rgba(255,255,255,0.38); margin-bottom:44px;">Ce que vous avez peut-être déjà utilisé ... comparé à ce que fait vraiment cette routine.</p>
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th style="text-align:left; background:transparent; color:rgba(255,255,255,0.15); font-size:9px;"></th>
+        <th class="th-nv">✨ Routine Novëm<br><span style="font-size:9px;font-weight:400;opacity:0.85;">Anti-rougeurs · Grenoble</span></th>
+        <th class="th-ot">Crème pharmacie<br><span style="font-size:9px;">peaux sensibles</span></th>
+        <th class="th-ot">Soin naturel<br><span style="font-size:9px;">non spécialisé</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="fn">Formulée spécifiquement anti-rougeurs</span><span class="fw">Pas "peaux sensibles" en général ... ciblée sur la réduction des rougeurs chroniques et la réactivité</span></td>
+        <td class="td-nv"><span class="ck">✓</span><br><span style="font-size:11px;">Centella · Calendula · Barrière</span></td>
+        <td class="td-ot"><span class="ck-p">~</span><br><span style="font-size:11px;">Formule généraliste</span></td>
+        <td class="td-ot"><span class="ck-p">~</span><br><span style="font-size:11px;">Variable selon marque</span></td>
+      </tr>
+      <tr>
+        <td><span class="fn">Sans parfum, sans alcool</span><span class="fw">Les deux déclencheurs les plus fréquents de la réactivité cutanée sur le long terme</span></td>
+        <td class="td-nv"><span class="ck">✓ Les deux absents</span></td>
+        <td class="td-ot"><span class="ck-p">~</span><br><span style="font-size:11px;">Souvent parfumée</span></td>
+        <td class="td-ot"><span class="ck-p">~</span><br><span style="font-size:11px;">Huiles essentielles fréquentes</span></td>
+      </tr>
+      <tr>
+        <td><span class="fn">Testé sous contrôle dermatologique</span><span class="fw">Résultats mesurés par un labo indépendant ... premiers résultats dès 2 semaines, 88% satisfaction à 4 semaines</span></td>
+        <td class="td-nv"><span class="ck">✓</span><br><span style="font-size:11px;">88% · 4 semaines</span></td>
+        <td class="td-ot"><span class="ck-p">~</span><br><span style="font-size:11px;">Tests basiques d'innocuité</span></td>
+        <td class="td-ot"><span class="xk">✗</span><br><span style="font-size:11px;">Rarement testé</span></td>
+      </tr>
+      <tr>
+        <td><span class="fn">Routine complète matin + soir</span><span class="fw">Un système conçu pour fonctionner ensemble ... pas des produits à tester séparément</span></td>
+        <td class="td-nv"><span class="ck">✓</span><br><span style="font-size:11px;">Huile matin + Crème soir</span></td>
+        <td class="td-ot"><span class="ck-p">~</span><br><span style="font-size:11px;">Produit unique</span></td>
+        <td class="td-ot"><span class="xk">✗</span></td>
+      </tr>
+      <tr>
+        <td><span class="fn">Fabriqué en France · Traçable</span><span class="fw">Ateliers Novëm à Grenoble · Ingrédients traçables · Production artisanale</span></td>
+        <td class="td-nv"><span class="ck">✓ Grenoble</span></td>
+        <td class="td-ot"><span class="ck-p">~</span><br><span style="font-size:11px;">Souvent sous-traité</span></td>
+        <td class="td-ot"><span class="ck-p">~</span><br><span style="font-size:11px;">Variable</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="comp-note">✓ = oui · ~ = partiellement · ✗ = non. Comparaison basée sur les compositions publiques disponibles.</p>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  12. REVIEWS
+══════════════════════════════════ -->
+<div class="rev-bg">
+<div class="sec-wrap">
+  <div class="sec-tag">Avis vérifiés</div>
+  <h2 class="sec-title" style="margin-bottom:32px;">Ce qu'elles disent<br><em>après 4 semaines.</em></h2>
+  <div class="rev-layout">
+    <div>
+      <div class="rev-big">4.8</div>
+      <div class="rev-stars-main">★★★★★</div>
+      <div class="rev-tot">127 avis vérifiés</div>
+      <div class="br-row"><div class="br-lbl">5★</div><div class="br-track"><div class="br-fill" style="width:82%;"></div></div><div class="br-num">82%</div></div>
+      <div class="br-row"><div class="br-lbl">4★</div><div class="br-track"><div class="br-fill" style="width:12%; background:var(--mid-cream);"></div></div><div class="br-num">12%</div></div>
+      <div class="br-row"><div class="br-lbl">3★</div><div class="br-track"><div class="br-fill" style="width:4%; background:var(--border);"></div></div><div class="br-num">4%</div></div>
+      <div class="br-row"><div class="br-lbl">2★</div><div class="br-track"><div class="br-fill" style="width:1%; background:var(--border);"></div></div><div class="br-num">1%</div></div>
+      <div class="br-row"><div class="br-lbl">1★</div><div class="br-track"><div class="br-fill" style="width:1%; background:var(--border);"></div></div><div class="br-num">1%</div></div>
+      <div class="words-box">
+        <strong>Mots les plus cités</strong>
+        Efficace · Rougeurs réduites · Peau apaisée · Enfin quelque chose qui marche · Moins de fond de teint
+      </div>
+    </div>
+    <div class="rev-list">
+      <div class="rev-card">
+        <div class="rev-top">
+          <div><div class="rev-name">Sophie M. <span style="font-size:10px;color:var(--text-light);font-weight:400;margin-left:6px;">Avis vérifié</span></div><div class="rev-meta">il y a 3 semaines · Peau sensible, couperose</div></div>
+          <div class="rev-stars-sm">★★★★★</div>
+        </div>
+        <div class="rev-title">"Enfin quelque chose qui agit vraiment en profondeur."</div>
+        <div class="rev-body">J'ai essayé des dizaines de crèmes pour peaux sensibles. Ça calmait sur le moment mais rien ne durait. Avec Novëm, en 3 semaines mes rougeurs ont vraiment diminué. Je n'utilise plus autant de fond de teint le matin.</div>
+        <span class="rev-tag">✓ Rougeurs réduites · 3 semaines</span>
+      </div>
+      <div class="rev-card">
+        <div class="rev-top">
+          <div><div class="rev-name">Claire D. <span style="font-size:10px;color:var(--text-light);font-weight:400;margin-left:6px;">Avis vérifié</span></div><div class="rev-meta">il y a 1 mois · Couperose, peau réactive</div></div>
+          <div class="rev-stars-sm">★★★★★</div>
+        </div>
+        <div class="rev-title">"Ma dermatologue a remarqué l'amélioration."</div>
+        <div class="rev-body">Couperose depuis 10 ans. Je cherchais quelque chose de doux en complément de mon traitement. Dès la deuxième semaine ma peau était visiblement moins rouge. Au rendez-vous suivant ma dermatologue a demandé ce que j'avais changé.</div>
+        <span class="rev-tag">✓ Dermato a remarqué · 2 semaines</span>
+      </div>
+      <div class="rev-card">
+        <div class="rev-top">
+          <div><div class="rev-name">Lucie R. <span style="font-size:10px;color:var(--text-light);font-weight:400;margin-left:6px;">Avis vérifié</span></div><div class="rev-meta">il y a 2 semaines · Peau réactive, sport</div></div>
+          <div class="rev-stars-sm">★★★★★</div>
+        </div>
+        <div class="rev-title">"Plus de rougeurs après mon footing du matin."</div>
+        <div class="rev-body">Je rougissais systématiquement après mon footing, ça durait jusqu'à midi. Depuis la routine Novëm c'est beaucoup plus rapide à disparaître ... en 20 minutes au lieu de 2 heures. La peau est clairement moins réactive.</div>
+        <span class="rev-tag">✓ Réactivité réduite après sport · 2 semaines</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  13. FAQ
+══════════════════════════════════ -->
+<div class="faq-bg">
+<div class="faq-in">
+  <div class="sec-tag">Questions fréquentes</div>
+  <h2 class="sec-title" style="font-size:30px; margin-bottom:28px;">Avant d'acheter</h2>
+  <div class="faq-item">
+    <div class="faq-q">Combien de temps avant de voir une différence ? <span>+</span></div>
+    <div class="faq-a">La majorité des utilisatrices ressentent un premier apaisement dès les premiers jours. Les résultats visibles sur les rougeurs apparaissent généralement dès la 2e semaine. Les résultats cliniques complets sont validés à 4 semaines avec 88% de satisfaction.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Puis-je l'utiliser avec mon traitement dermatologique ? <span>+</span></div>
+    <div class="faq-a">La routine Novëm est formulée sans ingrédients connus pour interagir avec les traitements courants de la couperose. Nous recommandons d'en parler à votre dermatologue si vous suivez un traitement médical actif. Nos équipes en atelier à Grenoble peuvent aussi vous conseiller.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Que se passe-t-il si ça ne marche pas pour moi ? <span>+</span></div>
+    <div class="faq-a">Vous bénéficiez de 30 jours satisfaite ou remboursée. Si après un mois d'utilisation régulière vous ne constatez pas d'amélioration, nous vous remboursons intégralement. Sans justification, sans formulaire compliqué.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">L'huile et la crème peuvent-elles être utilisées séparément ? <span>+</span></div>
+    <div class="faq-a">Oui. Chaque produit fonctionne seul. Mais ils ont été formulés pour se compléter ... l'huile prépare la barrière le matin, la crème la répare le soir. Ensemble leur efficacité est significativement supérieure.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Est-elle adaptée à la couperose diagnostiquée ? <span>+</span></div>
+    <div class="faq-a">Oui. La formule sans parfum, sans alcool et sans huiles essentielles irritantes la rend compatible avec les peaux couperosées. Elle est recommandée par des dermatologues partenaires et plusieurs clientes l'utilisent en complément d'un traitement médical.</div>
+  </div>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  14. UPSELL
+══════════════════════════════════ -->
+<div class="upsell-bg">
+<div class="upsell-in">
+  <div class="sec-tag">Complétez votre routine</div>
+  <h2 class="sec-title" style="font-size:28px;">La routine est le début.</h2>
+  <div class="upsell-grid">
+    <div class="up-card">
+      <div class="up-img">🧴</div>
+      <div class="up-body">
+        <div class="up-name">Baume Nettoyant Démaquillant</div>
+        <div class="up-desc">Sans tensioactif agressif. Nettoie sans agresser la barrière cutanée. L'étape 0 idéale avant la crème du soir.</div>
+        <div class="up-price">23,00€</div>
+        <button class="up-btn">Ajouter</button>
+      </div>
+    </div>
+    <div class="up-card">
+      <div class="up-img">💛</div>
+      <div class="up-body">
+        <div class="up-name">Sérum Lacté Éclat & Fermeté</div>
+        <div class="up-desc">Booste les résultats de la crème du soir. Peau plus ferme, teint plus lumineux. Idéal en complément de la routine anti-rougeurs.</div>
+        <div class="up-price">À partir de 34,00€</div>
+        <button class="up-btn">Ajouter</button>
+      </div>
+    </div>
+    <div class="up-card">
+      <div class="up-img">🌿</div>
+      <div class="up-body">
+        <div class="up-name">Huile Apaisante ... La Recharge</div>
+        <div class="up-desc">Vous avez adoré l'huile du matin ? La recharge à prix réduit. Même formule, packaging éco-responsable.</div>
+        <div class="up-price">À partir de 18,00€</div>
+        <button class="up-btn">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════
+  15. FINAL CTA
+══════════════════════════════════ -->
+<div class="final-cta">
+  <h2>Votre peau réactive mérite<br><em>enfin une routine qui comprend<br>ce qu'elle traverse.</em></h2>
+  <p>Formulée et fabriquée à Grenoble · Testée dermatologiquement · 30 jours satisfaite ou remboursée</p>
+  <button class="btn-final" onclick="document.getElementById('buybox').scrollIntoView({behavior:'smooth'})">
+    Commander la routine ... 59,00€
+  </button>
+  <p class="final-trust">🚚 Livraison offerte dès 55€ · ↩ 30 jours pour changer d'avis · 🔒 Paiement sécurisé · Visa · Mastercard · PayPal</p>
+</div>
+
+<footer>
+  <p>© 2026 Novëm · Ateliers Novëm · Grenoble, France</p>
+  <p style="margin-top:6px;">*Auto-évaluation · 127 utilisatrices · Utilisation quotidienne · Testé sous contrôle dermatologique.</p>
+</footer>
+
+<!-- STICKY -->
+<div class="sticky" id="stickyBar">
+  <div>
+    <div class="st-prod">Routine Anti-Rougeurs · Novëm</div>
+    <div class="st-sub">★★★★★ 4.8 · 127 avis · Testé dermatologiquement · Made in Grenoble</div>
+  </div>
+  <div class="st-price">59,00€</div>
+  <button class="st-btn" onclick="document.getElementById('buybox').scrollIntoView({behavior:'smooth'})">Ajouter au panier</button>
+</div>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('stickyBar').classList.toggle('show', window.scrollY > 500);
+});
+
+// B/A Slider
+const slider = document.getElementById('baSlider');
+const before = document.getElementById('baBefore');
+const handle = document.getElementById('baHandle');
+let drag = false;
+function slide(x) {
+  const r = slider.getBoundingClientRect();
+  let p = Math.min(Math.max(((x - r.left) / r.width) * 100, 5), 95);
+  before.style.width = p + '%';
+  handle.style.left = p + '%';
+}
+slider.addEventListener('mousedown', e => { drag = true; slide(e.clientX); });
+window.addEventListener('mouseup', () => { drag = false; });
+window.addEventListener('mousemove', e => { if (drag) slide(e.clientX); });
+slider.addEventListener('touchstart', e => { drag = true; slide(e.touches[0].clientX); }, {passive:true});
+window.addEventListener('touchend', () => { drag = false; });
+window.addEventListener('touchmove', e => { if (drag) slide(e.touches[0].clientX); }, {passive:true});
+
+document.querySelectorAll('.bb-thumb').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.bb-thumb').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+}));
+</script>
+</body>
+</html>
